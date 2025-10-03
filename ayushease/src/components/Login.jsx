@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 function Login() {
+  const navigate=useNavigate()
   return (
     <div className="relative flex size-full min-h-screen flex-col bg-white overflow-x-hidden"
       style={{ fontFamily: "Inter, 'Noto Sans', sans-serif" }}>
@@ -46,7 +47,9 @@ function Login() {
             </Link>
 
             <div className="px-4 py-3">
-              <button className="w-full bg-[#0df20d] h-12 rounded-lg font-bold">Login</button>
+              <button className="w-full bg-[#0df20d] h-12 rounded-lg font-bold" onClick={()=>
+                navigate('/')
+              }>Login</button>
             </div>
 
             <p className="text-center text-sm underline text-[#608a60]">
