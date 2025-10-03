@@ -9,6 +9,9 @@ import ForgotPassword from "./components/ForgotPassword";
 import Dashboard from "./components/Dashboard";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import Ayurveda from "./components/Ayurveda";
+import Yoga from "./components/Yoga";
+
 
 
 function App() {
@@ -21,6 +24,8 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/contact" element={<Contact/>} />
       <Route path="/about" element={<About/>} />
+      <Route path="/ayurveda" element={<Ayurveda/>} />
+      <Route path="/yoga" element={<Yoga/>} />
     </Routes>
   );
 }
