@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 function Register() {
+  const navigate = useNavigate()
   return (
     <div className="relative flex min-h-screen flex-col bg-white overflow-x-hidden"
       style={{ fontFamily: "Inter, 'Noto Sans', sans-serif" }}>
@@ -56,7 +57,7 @@ function Register() {
           </div>
 
           <div className="px-4 py-3">
-            <button className="w-full bg-[#0df20d] h-10 rounded-lg font-bold text-sm">Register</button>
+            <button className="w-full bg-[#0df20d] h-10 rounded-lg font-bold text-sm" onClick={()=>{navigate("/")}}>Register</button>
           </div>
 
           <p className="text-center text-sm underline text-[#608a60]">
