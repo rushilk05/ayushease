@@ -11,6 +11,9 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Ayurveda from "./components/Ayurveda";
 import Yoga from "./components/Yoga";
+import Unani from "./components/Unani";
+import Siddha from "./components/Siddha";
+import Homeopathy from "./components/Homeopathy";
 
 
 
@@ -26,6 +29,9 @@ function App() {
       <Route path="/about" element={<About/>} />
       <Route path="/ayurveda" element={<Ayurveda/>} />
       <Route path="/yoga" element={<Yoga/>} />
+      <Route path="/unani" element={<Unani/>} />
+      <Route path="/siddha" element={<Siddha/>} />
+      <Route path="/homeopathy" element={<Homeopathy/>} />
     </Routes>
   );
 }
