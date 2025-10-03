@@ -24,7 +24,7 @@ export default function Home() {
                 <h3 className="font-semibold text-sm mb-2">AYUSH Sectors</h3>
                 <ul className="text-sm space-y-1">
                   <li onClick={()=>{navigate("/ayurveda")}}>Ayurveda</li>
-                  <li>Yoga & Naturopathy</li>
+                  <li onClick={()=>{navigate("/yoga")}}>Yoga & Naturopathy</li>
                   <li>Unani</li>
                   <li>Siddha</li>
                   <li>Homeopathy</li>
