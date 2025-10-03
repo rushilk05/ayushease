@@ -1,8 +1,10 @@
 import React from "react";
 import { ChevronDown } from "lucide-react";
 import meditate from "../assets/meditate.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate= useNavigate()
   return (
     <div className="font-sans text-gray-800">
       {/* Navbar */}
@@ -21,7 +23,7 @@ export default function Home() {
               <div className="p-3">
                 <h3 className="font-semibold text-sm mb-2">AYUSH Sectors</h3>
                 <ul className="text-sm space-y-1">
-                  <li>Ayurveda</li>
+                  <li onClick={()=>{navigate("/ayurveda")}}>Ayurveda</li>
                   <li>Yoga & Naturopathy</li>
                   <li>Unani</li>
                   <li>Siddha</li>
@@ -146,4 +148,3 @@ export default function Home() {
     </div>
   );
 }
-
