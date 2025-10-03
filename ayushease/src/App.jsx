@@ -7,6 +7,9 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
 import Dashboard from "./components/Dashboard";
+import Contact from "./components/Contact";
+import About from "./components/About";
+
 
 function App() {
   return (
@@ -16,6 +19,8 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/contact" element={<Contact/>} />
+      <Route path="/about" element={<About/>} />
     </Routes>
   );
 }
