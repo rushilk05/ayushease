@@ -10,7 +10,7 @@ export default function Home() {
         <div className="text-xl font-bold">AYUSHEASE</div>
         <nav className="flex gap-6 items-center">
           <a href="/" className="hover:text-green-600">Home</a>
-          <a href="#" className="hover:text-green-600">About</a>
+          <a href="/About" className="hover:text-green-600">About</a>
 
           {/* Services Dropdown */}
           <div className="relative group">
@@ -39,7 +39,7 @@ export default function Home() {
             </div>
           </div>
 
-          <a href="#" className="hover:text-green-600">Contact</a>
+          <a href="/contact" className="hover:text-green-600">Contact</a>
           <a href="/login">
             <button className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700">
               Login/Register
@@ -146,3 +146,4 @@ export default function Home() {
     </div>
   );
 }
+
