@@ -1,18 +1,51 @@
 import React from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, CheckCircle2, UserCheck, ShieldCheck, Users } from "lucide-react";
 import meditate from "../assets/meditate.png";
 import { useNavigate } from "react-router-dom";
 
+const benefits = [
+  {
+    title: "Simplified Registration",
+    description:
+      "Our intuitive platform simplifies the registration process, reducing paperwork.",
+    icon: <CheckCircle2 size={36} className="text-green-600" />,
+  },
+  {
+    title: "Expert Guidance",
+    description:
+      "Access expert resources to navigate complexities of AYUSH sector.",
+    icon: <UserCheck size={36} className="text-green-600" />,
+    route: "/expertguidance"
+  },
+  {
+    title: "Compliance Assurance",
+    description:
+      "Ensure regulatory compliance with up-to-date tools.",
+    icon: <ShieldCheck size={36} className="text-green-600" />,
+  },
+  {
+    title: "Community Support",
+    description:
+      "Connect with AYUSH entrepreneurs, mentors, and investors.",
+    icon: <Users size={36} className="text-green-600" />,
+  },
+];
+
 export default function Home() {
-  const navigate= useNavigate()
+  const navigate = useNavigate();
+
   return (
     <div className="font-sans text-gray-800">
       {/* Navbar */}
       <header className="flex justify-between items-center px-8 py-4 border-b">
         <div className="text-xl font-bold">AYUSHEASE</div>
         <nav className="flex gap-6 items-center">
-          <a href="/" className="hover:text-green-600">Home</a>
-          <a href="/About" className="hover:text-green-600">About</a>
+          <a href="/" className="hover:text-green-600">
+            Home
+          </a>
+          <a href="/About" className="hover:text-green-600">
+            About
+          </a>
 
           {/* Services Dropdown */}
           <div className="relative group">
@@ -22,12 +55,12 @@ export default function Home() {
             <div className="absolute left-0 mt-2 w-64 bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition">
               <div className="p-3">
                 <h3 className="font-semibold text-sm mb-2">AYUSH Sectors</h3>
-                <ul className="text-sm space-y-1">
-                  <li onClick={()=>{navigate("/ayurveda")}}>Ayurveda</li>
-                  <li onClick={()=>{navigate("/yoga")}}>Yoga & Naturopathy</li>
-                  <li onClick={()=>{navigate("/unani")}}>Unani</li>
-                  <li onClick={()=>{navigate("/siddha")}}>Siddha</li>
-                  <li onClick={()=>{navigate("/homeopathy")}}>Homeopathy</li>
+                <ul className="text-sm space-y-1 cursor-pointer">
+                  <li onClick={() => navigate("/ayurveda")}>Ayurveda</li>
+                  <li onClick={() => navigate("/yoga")}>Yoga & Naturopathy</li>
+                  <li onClick={() => navigate("/unani")}>Unani</li>
+                  <li onClick={() => navigate("/siddha")}>Siddha</li>
+                  <li onClick={() => navigate("/homeopathy")}>Homeopathy</li>
                 </ul>
                 <h3 className="font-semibold text-sm mt-3 mb-2">Schemes</h3>
                 <ul className="text-sm space-y-1">
@@ -41,7 +74,18 @@ export default function Home() {
             </div>
           </div>
 
-          <a href="/contact" className="hover:text-green-600">Contact</a>
+          <a
+            href="/feedback"
+            className="hover:text-green-600"
+            onClick={() => {
+              navigate("/feedback");
+            }}
+          >
+            Feedback
+          </a>
+          <a href="/contact" className="hover:text-green-600">
+            Contact
+          </a>
           <a href="/login">
             <button className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700">
               Login/Register
@@ -52,25 +96,29 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row items-center px-8 py-12 gap-8">
-        <img
-          src={meditate} 
-          alt="Meditation"
-          className="rounded-lg w-full md:w-1/3"
-        />
+        <img src={meditate} alt="Meditation" className="rounded-lg w-full md:w-1/3" />
         <div className="flex flex-col gap-4">
-          <h1 className="text-4xl font-bold leading-snug">
-            Empowering AYUSH Startups
-          </h1>
+          <h1 className="text-4xl font-bold leading-snug">Empowering AYUSH Startups</h1>
           <p className="text-gray-600">
-            AYUSHEASE is your one-stop platform for seamless registration
-            and tracking of your AYUSH startup. We simplify the process,
-            ensuring compliance and accelerating your journey to success.
+            AYUSHEASE is your one-stop platform for seamless registration and tracking of your
+            AYUSH startup. We simplify the process, ensuring compliance and accelerating your
+            journey to success.
           </p>
           <div className="flex gap-4">
-            <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+            <button
+              className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700"
+              onClick={() => {
+                navigate("/register");
+              }}
+            >
               Get Started
             </button>
-            <button className="border border-gray-400 px-6 py-2 rounded hover:bg-gray-100">
+            <button
+              className="border border-gray-400 px-6 py-2 rounded hover:bg-gray-100"
+              onClick={() => {
+                navigate("/about");
+              }}
+            >
               Learn More
             </button>
           </div>
@@ -93,41 +141,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why AYUSHEASE */}
-      <section className="px-8 py-12">
-        <h2 className="text-2xl font-bold mb-4">Why AYUSHEASE?</h2>
-        <h3 className="text-xl font-semibold mb-2">Explore the Benefits of AYUSHEASE</h3>
-        <p className="text-gray-600 mb-8">
-          AYUSHEASE offers a comprehensive suite of features designed to support
-          AYUSH startups at every stage of their development. From streamlined
-          registration to ongoing tracking and support, we’ve got you covered.
-        </p>
+      {/* Why AYUSHEASE? (Improved Dynamic Section) */}
+      <section className="px-8 py-12 bg-gray-50">
+        <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Why AYUSHEASE?</h2>
+        <h3 className="text-xl font-semibold mb-8 text-center text-gray-700">
+          Explore the Benefits of AYUSHEASE
+        </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="p-6 border rounded-lg">
-            <h4 className="font-semibold">Simplified Registration</h4>
-            <p className="text-sm text-gray-600">
-              Our intuitive platform simplifies the registration process, reducing paperwork.
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg">
-            <h4 className="font-semibold">Expert Guidance</h4>
-            <p className="text-sm text-gray-600">
-              Access expert resources to navigate complexities of AYUSH sector.
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg">
-            <h4 className="font-semibold">Compliance Assurance</h4>
-            <p className="text-sm text-gray-600">
-              Ensure regulatory compliance with up-to-date tools.
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg">
-            <h4 className="font-semibold">Community Support</h4>
-            <p className="text-sm text-gray-600">
-              Connect with AYUSH entrepreneurs, mentors, and investors.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {benefits.map(({ title, description, icon, route }, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col items-center text-center"
+              onClick={() => { navigate(route) }}
+            >
+              <div className="mb-4">{icon}</div>
+              <h4 className="font-semibold text-lg mb-2 text-gray-900">{title}</h4>
+              <p className="text-gray-600 text-sm">{description}</p>
+            </div>
+          ))}
         </div>
       </section>
 
