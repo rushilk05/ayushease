@@ -14,6 +14,9 @@ import Yoga from "./components/Yoga";
 import Unani from "./components/Unani";
 import Siddha from "./components/Siddha";
 import Homeopathy from "./components/Homeopathy";
+import Feedback from "./components/Feedback";
+import Expertguidance from "./components/Expertguidance";
+
 
 
 
@@ -32,6 +35,8 @@ function App() {
       <Route path="/unani" element={<Unani/>} />
       <Route path="/siddha" element={<Siddha/>} />
       <Route path="/homeopathy" element={<Homeopathy/>} />
+      <Route path="/feedback" element={<Feedback/>} />
+      <Route path="/expertguidance" element={<Expertguidance/>} />
     </Routes>
   );
 }
