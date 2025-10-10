@@ -1,8 +1,64 @@
-import React from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Register() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    mobile: '',
+    ayushSystem: '',
+    password: '',
+    confirmPassword: '',
+    agreed: false
+  });
+
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleRegister = async () => {
+    const { email, mobile, password, confirmPassword, agreed } = formData;
+
+    if (!email || !mobile || !password || !confirmPassword) {
+      setErrorMsg('All fields are required');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setErrorMsg('Passwords do not match');
+      return;
+    }
+
+    if (!agreed) {
+      setErrorMsg('You must agree to the Terms & Privacy Policy');
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:5000/signup', {
+        username: email,
+        password: password
+      });
+
+      if (response.status === 201) {
+        navigate('/');
+      } else {
+        setErrorMsg('Something went wrong during registration');
+      }
+    } catch (error) {
+      setErrorMsg(error.response?.data?.error || 'Failed to register');
+    }
+  };
+
   return (
     <div className="relative flex min-h-screen flex-col bg-white overflow-x-hidden"
       style={{ fontFamily: "Inter, 'Noto Sans', sans-serif" }}>
@@ -18,19 +74,42 @@ function Register() {
           <p className="text-base text-center pb-3">Join our community of health enthusiasts.</p>
 
           <div className="px-4 py-3">
-            <input placeholder="Full Name" className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3" />
+            <input
+              name="fullName"
+              placeholder="Full Name"
+              className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3"
+              value={formData.fullName}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="px-4 py-3">
-            <input placeholder="Email ID" className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3" />
+            <input
+              name="email"
+              placeholder="Email ID"
+              className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3"
+              value={formData.email}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="px-4 py-3">
-            <input placeholder="Mobile Number" className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3" />
+            <input
+              name="mobile"
+              placeholder="Mobile Number"
+              className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3"
+              value={formData.mobile}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="px-4 py-3">
-            <select className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3">
+            <select
+              name="ayushSystem"
+              className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3"
+              value={formData.ayushSystem}
+              onChange={handleChange}
+            >
               <option value="">Select AYUSH System</option>
               <option value="ayurveda">Ayurveda</option>
               <option value="yoga">Yoga</option>
@@ -42,22 +121,53 @@ function Register() {
           </div>
 
           <div className="px-4 py-3">
-            <input type="password" placeholder="Password" className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3" />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3"
+              value={formData.password}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="px-4 py-3">
-            <input type="password" placeholder="Confirm Password" className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3" />
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              className="w-full bg-[#f0f5f0] rounded-lg h-14 p-3"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="px-4 py-3">
             <label className="flex gap-2 items-center">
-              <input type="checkbox" className="h-5 w-5" />
+              <input
+                type="checkbox"
+                name="agreed"
+                className="h-5 w-5"
+                checked={formData.agreed}
+                onChange={handleChange}
+              />
               <span>I agree to Terms of Service & Privacy Policy</span>
             </label>
           </div>
 
+          {errorMsg && (
+            <div className="px-4 text-red-500 text-sm py-2">
+              {errorMsg}
+            </div>
+          )}
+
           <div className="px-4 py-3">
-            <button className="w-full bg-[#0df20d] h-10 rounded-lg font-bold text-sm" onClick={()=>{navigate("/")}}>Register</button>
+            <button
+              className="w-full bg-[#0df20d] h-10 rounded-lg font-bold text-sm"
+              onClick={handleRegister}
+            >
+              Register
+            </button>
           </div>
 
           <p className="text-center text-sm underline text-[#608a60]">
@@ -66,7 +176,8 @@ function Register() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;
+
