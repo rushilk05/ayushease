@@ -9,6 +9,7 @@ const benefits = [
     description:
       "Our intuitive platform simplifies the registration process, reducing paperwork.",
     icon: <CheckCircle2 size={36} className="text-green-600" />,
+    route: "/ayushRegistration"
   },
   {
     title: "Expert Guidance",
@@ -180,3 +181,4 @@ export default function Home() {
     </div>
   );
 }
+
