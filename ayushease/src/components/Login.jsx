@@ -1,31 +1,8 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react'
+import { Link,useNavigate } from 'react-router-dom'
 
 function Login() {
-  const navigate = useNavigate();
-
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMsg, setErrorMsg] = useState('');
-
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/login', {
-        username,
-        password
-      });
-
-      if (response.status === 201) {
-        navigate('/');
-      } else {
-        setErrorMsg('Something went wrong. Try again.');
-      }
-    } catch (error) {
-      setErrorMsg(error.response?.data?.error || 'Login failed');
-    }
-  };
-
+  const navigate=useNavigate()
   return (
     <div className="relative flex size-full min-h-screen flex-col bg-white overflow-x-hidden"
       style={{ fontFamily: "Inter, 'Noto Sans', sans-serif" }}>
@@ -52,45 +29,27 @@ function Login() {
             <div className="px-4 py-3">
               <label className="flex flex-col">
                 <p className="font-medium pb-2">Email or Mobile</p>
-                <input
-                  placeholder="Enter your email or mobile"
-                  className="form-input w-full rounded-lg border border-[#dbe6db] h-14 p-3"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
+                <input placeholder="Enter your email or mobile"
+                  className="form-input w-full rounded-lg border border-[#dbe6db] h-14 p-3" />
               </label>
             </div>
 
             <div className="px-4 py-3">
               <label className="flex flex-col">
                 <p className="font-medium pb-2">Password</p>
-                <input
-                  type="password"
-                  placeholder="Enter your password"
-                  className="form-input w-full rounded-lg border border-[#dbe6db] h-14 p-3"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <input type="password" placeholder="Enter your password"
+                  className="form-input w-full rounded-lg border border-[#dbe6db] h-14 p-3" />
               </label>
             </div>
-
-            {errorMsg && (
-              <div className="px-4 text-red-500 text-sm py-2">
-                {errorMsg}
-              </div>
-            )}
 
             <Link to="/forgot-password" className="text-[#608a60] text-sm underline text-center block">
               Forgot Password?
             </Link>
 
             <div className="px-4 py-3">
-              <button
-                className="w-full bg-[#0df20d] h-12 rounded-lg font-bold"
-                onClick={handleLogin}
-              >
-                Login
-              </button>
+              <button className="w-full bg-[#0df20d] h-12 rounded-lg font-bold" onClick={()=>
+                navigate('/dashboard')
+              }>Login</button>
             </div>
 
             <p className="text-center text-sm underline text-[#608a60]">
@@ -100,7 +59,7 @@ function Login() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login
