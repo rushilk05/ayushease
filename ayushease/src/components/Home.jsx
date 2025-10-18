@@ -10,26 +10,26 @@ const benefits = [
     description:
       "Our intuitive platform simplifies the registration process, reducing paperwork.",
     animation: "https://assets10.lottiefiles.com/packages/lf20_0yfsb3a1.json",
-    route: "/ayushRegistration"
+    route: "/startupRegistration", // ✅ Correct route
   },
   {
     title: "Expert Guidance",
     description:
       "Access expert resources to navigate complexities of AYUSH sector.",
     animation: "https://assets10.lottiefiles.com/packages/lf20_t9gkkhz4.json",
-    route: "/expertguidance"
+    route: "/expertguidance",
   },
   {
     title: "Compliance Assurance",
     description:
       "Ensure regulatory compliance with up-to-date tools.",
-    animation: "https://assets10.lottiefiles.com/packages/lf20_3vbOcw.json"
+    animation: "https://assets10.lottiefiles.com/packages/lf20_3vbOcw.json",
   },
   {
     title: "Community Support",
     description:
       "Connect with AYUSH entrepreneurs, mentors, and investors.",
-    animation: "https://assets10.lottiefiles.com/packages/lf20_1pxqjqps.json"
+    animation: "https://assets10.lottiefiles.com/packages/lf20_1pxqjqps.json",
   },
 ];
 
@@ -40,10 +40,19 @@ export default function Home() {
     <div className="font-sans text-gray-800">
       {/* Navbar */}
       <header className="flex justify-between items-center px-8 py-4 border-b bg-white shadow-sm">
-        <div className="text-xl font-bold text-green-700">AYUSHEASE</div>
+        <div
+          className="text-xl font-bold text-green-700 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          AYUSHEASE
+        </div>
         <nav className="flex gap-6 items-center">
-          <a href="/" className="hover:text-green-600">Home</a>
-          <a href="/About" className="hover:text-green-600">About</a>
+          <button onClick={() => navigate("/")} className="hover:text-green-600">
+            Home
+          </button>
+          <button onClick={() => navigate("/about")} className="hover:text-green-600">
+            About
+          </button>
 
           {/* Services Dropdown */}
           <div className="relative group">
@@ -72,17 +81,22 @@ export default function Home() {
             </div>
           </div>
 
-          <a href="/feedback" className="hover:text-green-600">Feedback</a>
-          <a href="/contact" className="hover:text-green-600">Contact</a>
-          <a href="/login">
-            <button className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700">
-              Login/Register
-            </button>
-          </a>
+          <button onClick={() => navigate("/feedback")} className="hover:text-green-600">
+            Feedback
+          </button>
+          <button onClick={() => navigate("/contact")} className="hover:text-green-600">
+            Contact
+          </button>
+          <button
+            onClick={() => navigate("/login")}
+            className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700"
+          >
+            Login/Register
+          </button>
         </nav>
       </header>
 
-      {/* Hero Section with Meditation Image */}
+      {/* Hero Section */}
       <section className="flex flex-col md:flex-row items-center px-8 py-12 gap-8">
         <img src={meditate} alt="Meditation" className="rounded-lg w-full md:w-1/3" />
         <div className="flex flex-col gap-4">
@@ -109,7 +123,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Stats Section */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 py-8 bg-gray-50">
         <div className="bg-white p-6 rounded text-center shadow">
           <h2 className="text-2xl font-bold text-green-700">500+</h2>
@@ -125,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why AYUSHEASE with Lottie Animations */}
+      {/* Why AYUSHEASE */}
       <section className="px-8 py-12 bg-white">
         <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Why AYUSHEASE?</h2>
         <h3 className="text-xl font-semibold mb-8 text-center text-gray-700">
@@ -139,12 +153,7 @@ export default function Home() {
               className="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col items-center text-center"
               onClick={() => route && navigate(route)}
             >
-              <Player
-                autoplay
-                loop
-                src={animation}
-                style={{ height: "100px", width: "100px" }}
-              />
+              <Player autoplay loop src={animation} style={{ height: "100px", width: "100px" }} />
               <h4 className="font-semibold text-lg mb-2 text-gray-900">{title}</h4>
               <p className="text-gray-600 text-sm">{description}</p>
             </div>
