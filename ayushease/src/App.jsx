@@ -17,10 +17,9 @@ import Homeopathy from "./components/Homeopathy";
 import Feedback from "./components/Feedback";
 import Expertguidance from "./components/Expertguidance";
 import StartupRegistration from "./components/StartupRegistration";
-
-
-
-
+import Complianceassistant from "./components/Complianceassistant";
+import Community from "./components/Community";
+import Networking from "./components/Networking";
 
 function App() {
   return (
@@ -39,7 +38,11 @@ function App() {
       <Route path="/homeopathy" element={<Homeopathy/>} />
       <Route path="/feedback" element={<Feedback/>} />
       <Route path="/expertguidance" element={<Expertguidance/>} />
-      <Route path="/startupRegistration" element={<StartupRegistration/>} />
+      <Route path="/complianceassistant" element={<Complianceassistant/>} />
+      <Route path="/community" element={<Community/>} />
+      <Route path="/networking" element={<Networking/>} />
+
+
 
     </Routes>
   );
