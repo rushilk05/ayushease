@@ -41,6 +41,8 @@ function App() {
       <Route path="/expertguidance" element={<Expertguidance/>} />
       <Route path="/complianceassistant" element={<Complianceassistant/>} />
       <Route path="/community" element={<Community/>} />
+      <Route path="/startupregistration" element={<StartupRegistration/>} />
+
       <Route path="/networking" element={<Networking/>} />
       <Route path="/mentorship" element={<Mentorship/>} />
 
@@ -52,4 +54,3 @@ function App() {
 }
 
 export default App;
-
