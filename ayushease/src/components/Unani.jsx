@@ -8,17 +8,25 @@ export default function UnaniInfo() {
     <div className="font-sans text-gray-800 min-h-screen flex flex-col">
       {/* Header */}
       <header className="flex justify-between items-center px-8 py-4 border-b">
-        <div 
-          className="text-xl font-bold cursor-pointer" 
+        <div
+          className="text-xl font-bold cursor-pointer"
           onClick={() => navigate("/")}
         >
           AYUSHEASE
         </div>
         <nav className="flex gap-6 items-center">
-          <a href="/" className="hover:text-green-600">Home</a>
-          <a href="/about" className="hover:text-green-600">About</a>
-          <a href="/services" className="hover:text-green-600">Services</a>
-          <a href="/contact" className="hover:text-green-600">Contact</a>
+          <a href="/" className="hover:text-green-600">
+            Home
+          </a>
+          <a href="/about" className="hover:text-green-600">
+            About
+          </a>
+          <a href="/services" className="hover:text-green-600">
+            Services
+          </a>
+          <a href="/contact" className="hover:text-green-600">
+            Contact
+          </a>
           <a href="/login">
             <button className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700">
               Login/Register
@@ -34,8 +42,8 @@ export default function UnaniInfo() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3">What is Unani Medicine?</h2>
           <p className="text-gray-700 leading-relaxed">
-            Unani medicine is a traditional system of healing and health maintenance observed in South Asia, 
-            based on the teachings of ancient Greek physicians like Hippocrates and Galen, later developed by Arab and Persian scholars. 
+            Unani medicine is a traditional system of healing and health maintenance observed in South Asia,
+            based on the teachings of ancient Greek physicians like Hippocrates and Galen, later developed by Arab and Persian scholars.
             It focuses on balancing the body's four humors—blood, phlegm, yellow bile, and black bile—to maintain health and treat illness.
           </p>
         </section>
@@ -62,10 +70,25 @@ export default function UnaniInfo() {
           </ul>
         </section>
 
+        {/* YouTube Video Embed */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold mb-3">Watch: Introduction to Unani Medicine</h2>
+          <div className="aspect-w-16 aspect-h-9">
+            <iframe
+              className="w-full h-64 md:h-96 rounded-lg shadow-lg"
+              src="https://www.youtube.com/embed/cJMRDlKCowU"
+              title="Unani Medicine Introduction"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3">Unani & AYUSHEASE</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            AYUSHEASE supports Unani startups by simplifying registration, ensuring compliance with regulatory standards, 
+            AYUSHEASE supports Unani startups by simplifying registration, ensuring compliance with regulatory standards,
             and providing expert guidance tailored to this unique healthcare tradition. Join our network to access resources, funding, and a strong community.
           </p>
           <button
