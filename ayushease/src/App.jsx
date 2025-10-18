@@ -16,7 +16,7 @@ import Siddha from "./components/Siddha";
 import Homeopathy from "./components/Homeopathy";
 import Feedback from "./components/Feedback";
 import Expertguidance from "./components/Expertguidance";
-import AyushRegistration from "./components/AyushRegistration";
+import StartupRegistration from "./components/StartupRegistration";
 
 
 
@@ -39,7 +39,7 @@ function App() {
       <Route path="/homeopathy" element={<Homeopathy/>} />
       <Route path="/feedback" element={<Feedback/>} />
       <Route path="/expertguidance" element={<Expertguidance/>} />
-      <Route path="/ayushRegistration" element={<AyushRegistration/>} />
+      <Route path="/startupRegistration" element={<StartupRegistration/>} />
 
     </Routes>
   );
