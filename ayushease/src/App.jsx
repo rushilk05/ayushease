@@ -20,6 +20,7 @@ import StartupRegistration from "./components/StartupRegistration";
 import Complianceassistant from "./components/Complianceassistant";
 import Community from "./components/Community";
 import Networking from "./components/Networking";
+import Mentorship from "./components/Mentorship";
 
 function App() {
   return (
@@ -41,6 +42,8 @@ function App() {
       <Route path="/complianceassistant" element={<Complianceassistant/>} />
       <Route path="/community" element={<Community/>} />
       <Route path="/networking" element={<Networking/>} />
+      <Route path="/mentorship" element={<Mentorship/>} />
+
 
 
 
@@ -49,3 +52,4 @@ function App() {
 }
 
 export default App;
+
