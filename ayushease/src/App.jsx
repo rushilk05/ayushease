@@ -21,6 +21,10 @@ import Complianceassistant from "./components/Complianceassistant";
 import Community from "./components/Community";
 import Networking from "./components/Networking";
 import Mentorship from "./components/Mentorship";
+import Scheme from "./components/Scheme";
+import Virtualclinic from "./components/Virtualclinic";
+
+
 
 function App() {
   return (
@@ -45,6 +49,9 @@ function App() {
 
       <Route path="/networking" element={<Networking/>} />
       <Route path="/mentorship" element={<Mentorship/>} />
+      <Route path="/scheme" element={<Scheme/>} />
+      <Route path="/virtualclinic" element={<Virtualclinic/>} />
+
 
 
 
